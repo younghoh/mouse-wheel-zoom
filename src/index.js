@@ -48,7 +48,7 @@ function mouseWheelZoom({ element, zoomStep = .1 } = {}) {
     window.addEventListener('resize', onDOMChanges);
   }
 
-  function usibscribeFromEvents() {
+  function unsubscribeFromEvents() {
     element.removeEventListener('wheel', onElementMouseWheel);
     element.removeEventListener('mousedown', onElementMouseDown);
     element.removeEventListener('mouseup', onElementMouseUp);
@@ -196,7 +196,7 @@ function mouseWheelZoom({ element, zoomStep = .1 } = {}) {
     throwIfDisposed();
 
     isDisposed = true;
-    usibscribeFromEvents();
+    unsubscribeFromEvents();
     containerElement.remove();
   }
 
